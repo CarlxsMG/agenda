@@ -8,6 +8,8 @@ from django.views.generic import (
 from rest_framework.generics import (
     ListAPIView,
     CreateAPIView,
+    RetrieveAPIView, # (DETAIL VIEW)
+    DestroyAPIView, # (DELETE VIEW)
 )
 
 # Local Models
@@ -51,3 +53,14 @@ class PersonSearchApiView(ListAPIView):
 
 class PersonCreateApiView(CreateAPIView):
     serializer_class = PersonSerializer
+
+
+class PersonDetailApiView(RetrieveAPIView):
+    serializer_class = PersonSerializer
+
+    queryset = Person.objects.all()
+
+class PersonDeleteApiView(DestroyAPIView):
+    serializer_class = PersonSerializer
+
+    queryset = Person.objects.all()

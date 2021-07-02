@@ -13,4 +13,6 @@ urlpatterns = [
     path('lista/', views.PersonListVien.as_view(), name='lista'),
     path('api/persona/search/<kword>/', views.PersonSearchApiView.as_view(), name='search'),
     path('api/persona/create/', views.PersonCreateApiView.as_view(), name='create'),
+    path('api/persona/detail/<pk>', views.PersonDetailApiView.as_view(), name='detail'),
+    path('api/persona/delete/<pk>', views.PersonDeleteApiView.as_view(), name='delete'),
 ]
