@@ -10,6 +10,8 @@ from rest_framework.generics import (
     CreateAPIView,
     RetrieveAPIView, # (DETAIL VIEW)
     DestroyAPIView, # (DELETE VIEW)
+    UpdateAPIView, #(SIN DATOS EN INPUTS)
+    RetrieveUpdateAPIView, # (CON DATOS EN INPUTS)
 )
 
 # Local Models
@@ -61,6 +63,17 @@ class PersonDetailApiView(RetrieveAPIView):
     queryset = Person.objects.all()
 
 class PersonDeleteApiView(DestroyAPIView):
+    serializer_class = PersonSerializer
+
+    queryset = Person.objects.all()
+
+class PersonUpdateApiView(UpdateAPIView):
+    serializer_class = PersonSerializer
+
+    queryset = Person.objects.all()
+
+
+class PersonRetrieveUpdateApiView(RetrieveUpdateAPIView):
     serializer_class = PersonSerializer
 
     queryset = Person.objects.all()
