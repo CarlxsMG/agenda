@@ -1,6 +1,7 @@
 from django.shortcuts import render
 from django.views.generic import (
-    ListView
+    ListView,
+    TemplateView
 )
 
 # Django Rest Framework
@@ -27,4 +28,20 @@ class PersonListApiViwe(ListAPIView):
 
     def get_queryset(self):
         return Person.objects.all()
+
+
+class PersonListVien(TemplateView):
+    template_name = 'persona/lista.html'
+    
+
+class PersonSearchApiView(ListAPIView):
+    serializer_class = PersonSerializer
+
+    def get_queryset(self):
+        #Filtramos por parametro
+        kword = self.kwargs['kword']
+
+        return Person.objects.filter(
+            full_name__icontains=kword,
+        )
     

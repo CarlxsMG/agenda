@@ -9,5 +9,7 @@ app_name = 'persona_app'
 
 urlpatterns = [
     path('personas/', views.ListaPersonas.as_view(), name='personas'),
-    path('api-persona-list/', views.PersonListApiViwe.as_view())
+    path('api/persona/lista/', views.PersonListApiViwe.as_view()),
+    path('lista/', views.PersonListVien.as_view(), name='lista'),
+    path('api/persona/search/<kword>/', views.PersonSearchApiView.as_view(), name='search'),
 ]
