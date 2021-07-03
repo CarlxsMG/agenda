@@ -17,4 +17,5 @@ urlpatterns = [
     path('api/persona/delete/<pk>', views.PersonDeleteApiView.as_view(), name='delete'),
     path('api/persona/update/<pk>', views.PersonUpdateApiView.as_view(), name='update'),
     path('api/persona/modify/<pk>', views.PersonRetrieveUpdateApiView.as_view(), name='modify'),
+    path('api/personas/', views.PersonApiLista.as_view(), name='api-personas'),
 ]
