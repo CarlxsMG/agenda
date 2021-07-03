@@ -23,6 +23,7 @@ from .serializers import (
     PersonaSerializer,
     PersonaSerializer2,
     ReunionSerializer,
+    PersonaSerializer3,
 )
 
 
@@ -88,7 +89,7 @@ class PersonApiLista(ListAPIView):
     ''' Vista para interactuar con serializadores '''
 
     # serializer_class = PersonaSerializer
-    serializer_class = PersonaSerializer2
+    serializer_class = PersonaSerializer3
 
     def get_queryset(self):
         return Person.objects.all()
