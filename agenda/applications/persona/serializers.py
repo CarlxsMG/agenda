@@ -1,5 +1,5 @@
 # Django Rest Framework
-from rest_framework import serializers
+from rest_framework import serializers, pagination
 
 # Local models
 from .models import Hobby, Person, Reunion
@@ -109,3 +109,7 @@ class ReunionSerializerLink(serializers.HyperlinkedModelSerializer):
                 'lookup_field': 'pk'}
         }
 
+
+class PersonPagination(pagination.PageNumberPagination):
+    page_size = 5
+    max_page_size = 50 # Maxima carga en memoria

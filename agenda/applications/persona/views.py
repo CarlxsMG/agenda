@@ -25,6 +25,7 @@ from .serializers import (
     ReunionSerializer,
     PersonaSerializer3,
     ReunionSerializerLink,
+    PersonPagination,
 )
 
 
@@ -110,3 +111,14 @@ class ReunionApiListaLink(ListAPIView):
 
     def get_queryset(self):
         return Reunion.objects.all()
+
+
+class PersonPaginationList(ListAPIView):
+    ''' Vista con paginacion '''
+
+    serializer_class = PersonaSerializer
+    pagination_class = PersonPagination
+
+
+    def get_queryset(self):
+        return Person.objects.all()

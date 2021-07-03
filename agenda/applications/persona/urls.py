@@ -20,4 +20,6 @@ urlpatterns = [
     path('api/personas/', views.PersonApiLista.as_view(), name='api-personas'),
     path('api/reuniones/', views.ReunionApiLista.as_view(), name='api-reuniones'),
     path('api/reuniones2/', views.ReunionApiListaLink.as_view(), name='api-reuniones2'),
+    path('api/persona/paginacion/', views.PersonPaginationList.as_view(), name='api-paginacion'),
+    
 ]
