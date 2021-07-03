@@ -88,3 +88,24 @@ class ReunionSerializer2(serializers.ModelSerializer):
         
     def get_fecha_hora(self, obj):
         return str(obj.fecha)+' - '+str(obj.hora)
+
+
+
+class ReunionSerializerLink(serializers.HyperlinkedModelSerializer):
+
+    class Meta:
+        model = Reunion
+        fields = (
+            'id',
+            'fecha',
+            'hora',
+            'asunto',
+            'persona',
+            )
+
+        extra_kwargs = {
+            'persona': {
+                'view_name': 'persona_app:detail',
+                'lookup_field': 'pk'}
+        }
+

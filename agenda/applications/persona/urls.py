@@ -19,4 +19,5 @@ urlpatterns = [
     path('api/persona/modify/<pk>', views.PersonRetrieveUpdateApiView.as_view(), name='modify'),
     path('api/personas/', views.PersonApiLista.as_view(), name='api-personas'),
     path('api/reuniones/', views.ReunionApiLista.as_view(), name='api-reuniones'),
+    path('api/reuniones2/', views.ReunionApiListaLink.as_view(), name='api-reuniones2'),
 ]
