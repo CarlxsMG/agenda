@@ -69,3 +69,22 @@ class PersonaSerializer3(serializers.ModelSerializer):
             'hobbies',
             'created',
             )
+
+
+class ReunionSerializer2(serializers.ModelSerializer):
+
+    fecha_hora = serializers.SerializerMethodField()
+
+    class Meta:
+        model = Reunion
+        fields = (
+            'id',
+            'fecha',
+            'hora',
+            'asunto',
+            'persona',
+            'fecha_hora',
+            )
+        
+    def get_fecha_hora(self, obj):
+        return str(obj.fecha)+' - '+str(obj.hora)
