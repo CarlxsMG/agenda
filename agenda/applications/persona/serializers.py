@@ -2,7 +2,7 @@
 from rest_framework import serializers
 
 # Local models
-from .models import Person
+from .models import Person, Reunion
 
 
 class PersonSerializer(serializers.ModelSerializer):
@@ -30,3 +30,18 @@ class PersonaSerializer2(serializers.ModelSerializer):
     class Meta:
         model = Person
         fields = ('__all__')
+
+
+class ReunionSerializer(serializers.ModelSerializer):
+
+    persona = PersonaSerializer()
+
+    class Meta:
+        model = Reunion
+        fields = (
+            'id',
+            'fecha',
+            'hora',
+            'asunto',
+            'persona',
+            )

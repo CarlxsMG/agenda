@@ -15,10 +15,15 @@ from rest_framework.generics import (
 )
 
 # Local Models
-from .models import Person
+from .models import Person, Reunion
 
 # Local serializers
-from .serializers import PersonSerializer, PersonaSerializer, PersonaSerializer2
+from .serializers import (
+    PersonSerializer,
+    PersonaSerializer,
+    PersonaSerializer2,
+    ReunionSerializer,
+)
 
 
 class ListaPersonas(ListView):
@@ -88,3 +93,10 @@ class PersonApiLista(ListAPIView):
     def get_queryset(self):
         return Person.objects.all()
     
+
+class ReunionApiLista(ListAPIView):
+
+    serializer_class = ReunionSerializer
+
+    def get_queryset(self):
+        return Reunion.objects.all()
